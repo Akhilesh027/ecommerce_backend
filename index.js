@@ -79,7 +79,7 @@ app.post('/api/products/add', upload.single('image'), async (req, res) => {
   try {
     const { name, price, description } = req.body;
     const imageUrl = req.file
-      ? `${req.protocol}://${req.get('host')}/uploads/${req.file.filename}`
+      ? `/uploads/${req.file.filename}`
       : '';
 
     const product = new Product({ name, price, description, imageUrl });
